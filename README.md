@@ -1,18 +1,18 @@
-# AI-Assisted Enterprise Home Network Virtual Lab
+# Enterprise Home Network Virtual Lab
 
-Status: Lab-validated virtual mirror with sanitized public evidence
+Current result: isolated virtual lab validated with sanitized public evidence
 
 ## Why I started this project
 
-I wanted a safe way to learn how identity, DNS, routing, segmentation, certificate-based access decisions, and deployment services fit together instead of treating each topic as a separate tutorial.
+I built this isolated Hyper-V lab to understand how identity, DNS, routing, segmentation, certificate-based access decisions, and deployment services fit together instead of treating each topic as a separate tutorial.
 
-I defined the architecture, device roles, learning goals, isolation rules, evidence requirements, and stopping conditions. I then directed an AI-assisted implementation and reviewed the resulting configurations, failures, corrections, screenshots, hashes, and validation records before accepting each stage.
+I defined the architecture, device roles, learning goals, isolation rules, evidence requirements, and stopping conditions. I reviewed the resulting configurations, failures, corrections, screenshots, hashes, and validation records before accepting each stage.
 
 I use AI to speed up research, documentation, testing, and project work while keeping validation and final decisions in my hands.
 
 This is not a claim that I configured every component from memory. It is a documented learning environment that shows how I define requirements, control risk, review evidence, troubleshoot failures, and separate a lab result from a production claim.
 
-## What the lab demonstrates
+## What I built
 
 The lab is an isolated enterprise-style network built on Hyper-V. It covers Windows Server identity and DNS, Group Policy, Windows LAPS, OPNsense routing and segmentation, FreeRADIUS EAP-TLS decisions, persistent approved and quarantined clients, and a diskless PXE service-response test.
 
@@ -52,11 +52,11 @@ flowchart LR
 | Test clients | Persistent approved and unknown Alpine clients installed and validated |
 | PXE | DHCP lease and WDS service response to a diskless UEFI target |
 
-## Important claim boundary
+## What this result proves
 
-This project supports claims about requirements definition, directed AI-assisted implementation, evidence review, troubleshooting, and validation of a virtual network design. It does not prove independent production administration, physical 802.1X, MAB, dynamic VLAN enforcement, household-network deployment, or Windows image deployment.
+This project supports claims about requirements definition, guided implementation, evidence review, troubleshooting, and validation of a virtual network design. It does not prove independent production administration, physical 802.1X, MAB, dynamic VLAN enforcement, household-network deployment, or Windows image deployment.
 
-## Workflow
+## How I worked through it
 
 1. Verify backup and recovery.
 2. Inventory the host and record risks.
@@ -92,7 +92,14 @@ I keep each claim tied to a positive test, a denied or negative test when approp
 
 ## Public evidence boundary
 
-This public README was derived from a 25-file, hash-verified local package. The full package remains private because it contains detailed lab addressing, host and domain identifiers, build procedures, and screenshots that are useful for local evidence but unnecessary for a public portfolio.
+This public README was derived from a 25-file, hash-verified local package. The full package remains private because it contains detailed lab addressing, host and domain identifiers, build procedures, and screenshots that are useful for local evidence but unnecessary for understanding the public project.
 
 Credentials, private keys, shared secrets, household addresses, recovery data, raw logs, private configuration exports, full machine inventories, and unrelated personal information are not published.
+
+## Where to start
+
+1. Review the architecture to understand how the seven private Hyper-V networks fit together.
+2. Read the verified results to see what passed.
+3. Read the failed results to see what changed and why.
+4. Use the claim boundary to separate this lab from production network administration.
 
