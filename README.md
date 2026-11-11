@@ -73,7 +73,7 @@ This project supports claims about requirements definition, guided implementatio
 
 The project kept failed results instead of writing around them:
 
-- A correct Deployment rule still failed until the return route and DNS-specific endpoint firewall scope were reviewed together. This reinforced that routing must work in both directions.
+- A correct Deployment rule still failed until the return route and DNS-specific endpoint firewall coverage were reviewed together. This reinforced that routing must work in both directions.
 - The first diskless PXE attempt received no lease because DHCP authorization was incomplete. The service path passed only after that dependency was corrected and the original test was repeated.
 - The approved and unknown Linux clients booted from their installed disks, but their live-session network settings had not carried into the installed systems. Post-install validation caught the difference before the result was accepted.
 - FreeRADIUS could return an accept, reject, and network-role response, but a physical switch or access point would still need to enforce that decision. A policy decision is not the same as physical network access control.
@@ -90,7 +90,7 @@ I keep each claim tied to a positive test, a denied or negative test when approp
 - Persistent-client checks cover the installed system after reboot, not only the temporary live environment.
 - PXE checks cover the DHCP and WDS service response while preserving the boundary that no operating system was deployed.
 
-## Public evidence boundary
+## Public evidence limits
 
 This public README was derived from a 25-file, hash-verified local package. The full package remains private because it contains detailed lab addressing, host and domain identifiers, build procedures, and screenshots that are useful for local evidence but unnecessary for understanding the public project.
 
