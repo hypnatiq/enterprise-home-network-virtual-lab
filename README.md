@@ -4,19 +4,37 @@ Current result: isolated virtual lab validated with sanitized public evidence
 
 ## Why I started this project
 
-I built this isolated Hyper-V lab to understand how identity, DNS, routing, segmentation, certificate-based access decisions, and deployment services fit together instead of treating each topic as a separate tutorial.
+I built this isolated Hyper-V lab as a working virtual version of the network I plan to implement in my home. It gives me a practical way to learn how identity, DNS, routing, segmentation, certificate-based access decisions, and deployment services work together while I continue acquiring the physical hardware.
 
-I defined the architecture, device roles, learning goals, isolation rules, evidence requirements, and stopping conditions. I reviewed the resulting configurations, failures, corrections, screenshots, hashes, and validation records before accepting each stage.
+I based the design on my three-computer home environment and the network roles I want to add around it. I defined the architecture, device roles, learning goals, isolation rules, evidence requirements, and stopping conditions. I reviewed the resulting configurations, failures, corrections, screenshots, hashes, and validation records before accepting each stage.
 
 I use AI to speed up research, documentation, testing, and project work while keeping validation and final decisions in my hands.
 
-This is not a claim that I configured every component from memory. It is a documented learning environment that shows how I define requirements, control risk, review evidence, troubleshoot failures, and separate a lab result from a production claim.
+The lab gives me hands-on practice with the same planning, configuration, troubleshooting, validation, and recovery work I will need when I translate the design to physical equipment.
 
 ## What I built
 
 The lab is an isolated enterprise-style network built on Hyper-V. It covers Windows Server identity and DNS, Group Policy, Windows LAPS, OPNsense routing and segmentation, FreeRADIUS EAP-TLS decisions, persistent approved and quarantined clients, and a diskless PXE service-response test.
 
 Every lab switch uses Hyper-V Private networking. The environment does not connect to or replace the household router, DHCP, DNS, firewall, Wi-Fi, or physical network.
+
+## How the lab connects to my planned home network
+
+The virtual environment models the main roles I want in the physical build: Trusted, IoT, Guest, Quarantine, Deployment, and Management networks. I use the lab to understand how the services and devices should work together before I purchase, install, and test the remaining hardware in my home.
+
+### Planned physical hardware and what each part will do
+
+Exact new product models have not been selected yet. The current plan is organized by the role each device must fill:
+
+- **Router or firewall appliance:** provides the Internet edge, routes traffic between approved networks, applies firewall policy, and records the traffic needed for troubleshooting.
+- **Managed Ethernet switch:** carries the wired network, separates ports and VLANs, connects the three computers and infrastructure devices, and may enforce RADIUS-based access decisions if the selected model supports it.
+- **VLAN-aware wireless access point:** maps wireless devices and SSIDs to the correct network, keeps guest and IoT traffic separated, and may take part in certificate-based access control if the selected model supports it.
+- **Server or virtualization host:** runs the selected identity, DNS, policy, RADIUS, PXE, and management services in a form that can be backed up and recovered.
+- **Backup storage:** protects configuration exports, deployment files, project evidence, and the data needed to restore the environment after a failure.
+- **UPS coverage:** keeps the network and server devices stable during short power interruptions and gives them time to shut down safely during a longer outage.
+- **Direct wired Ethernet paths:** provide the reliable links needed for the server, switch, management work, and the first PXE deployment tests.
+
+The virtual lab is the current working environment. Purchasing and installing the physical equipment is the next phase after the products, budget, placement, recovery path, and compatibility requirements are reviewed.
 
 ## Lab-validated architecture
 
@@ -52,9 +70,9 @@ flowchart LR
 | Test clients | Persistent approved and unknown Alpine clients installed and validated |
 | PXE | DHCP lease and WDS service response to a diskless UEFI target |
 
-## What this result proves
+## What the current result supports
 
-This project supports claims about requirements definition, guided implementation, evidence review, troubleshooting, and validation of a virtual network design. It does not prove independent production administration, physical 802.1X, MAB, dynamic VLAN enforcement, household-network deployment, or Windows image deployment.
+The current evidence supports the virtual architecture, guided implementation, troubleshooting, and validation work described above. Physical 802.1X, MAB, dynamic VLAN enforcement, household-network deployment, and Windows image deployment remain part of the later hardware phase and will need their own tests.
 
 ## How I worked through it
 
@@ -67,7 +85,7 @@ This project supports claims about requirements definition, guided implementatio
 7. Prove EAP-TLS accept and reject results.
 8. Install approved and unknown endpoints and test the allow or block paths.
 9. Preserve the safe diskless PXE service-response boundary.
-10. Separate private evidence from public claims and document what remains physical work.
+10. Record which results are complete in the virtual lab and which still require the physical equipment.
 
 ## What failed and what I learned
 
@@ -101,5 +119,6 @@ Credentials, private keys, shared secrets, household addresses, recovery data, r
 1. Review the architecture to understand how the seven private Hyper-V networks fit together.
 2. Read the verified results to see what passed.
 3. Read the failed results to see what changed and why.
-4. Use the claim boundary to separate this lab from production network administration.
+4. Review the planned hardware section to see how the virtual design will translate to the physical home network.
+
 
